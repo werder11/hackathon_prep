@@ -65,7 +65,7 @@ Read back Vehicle.Speed: 3.0
 ```
 
 ###  Vehicle Signal Specification (VSS) Datatypes:
-Kuksa support VSS data type specification. For detail documentation on VSS data types and definitions please refer to:
+Kuksa support VSS data type specification. For detailed documentation on VSS data types and definitions please refer to:
 
 - [Vehicle Signal Specification Data Types](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/)
 
