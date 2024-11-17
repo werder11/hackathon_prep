@@ -160,8 +160,12 @@ workloads:
 
 ```bash
 ank-server -k  --startup-config state.yaml # Start ankaios server with  provided configuration
+ank -k apply state.yaml # Apply the workload
 
+ank -k  get workload # Get all workload states
+ank -k get state # Get detailed state about all workload states
 ```
+
 
 ## Sample ROS Autonomous Driving Project in Docker
 
