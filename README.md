@@ -137,6 +137,7 @@ Following tutorial shows the steps on how to convert a Docker image format into 
 > Important Note: A sample Ankaios Project 
 
 ```yaml
+# state.yaml
 apiVersion: v0.1
 kind: Config
 workloads:
