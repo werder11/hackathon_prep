@@ -1,4 +1,31 @@
-## Installing WSL 
+- [Introduction](#introduction)
+- [Installing WSL](#installing-wsl)
+- [Sample ROS Autonomous Driving Project in Docker](#sample-ros-autonomous-driving-project-in-docker)
+- [Kuksa](#kuksa)
+  - [Sample Kuksa Project:](#sample-kuksa-project)
+  - [A Sample Python Project Creating and Subscribing to a Kafka Topic](#a-sample-python-project-creating-and-subscribing-to-a-kafka-topic)
+  - [Vehicle Signal Specification (VSS) Datatypes:](#vehicle-signal-specification-vss-datatypes)
+- [Autoware](#autoware)
+- [Ankaios:](#ankaios)
+  - [Install Podman:](#install-podman)
+  - [Create OCI Image from Docker Instance (via Docker2OCI tool)](#create-oci-image-from-docker-instance-via-docker2oci-tool)
+  - [A sample Ankaios Project](#a-sample-ankaios-project)
+- [Autowrx Gitlab Repository](#autowrx-gitlab-repository)
+- [ThreadX](#threadx)
+- [Uprotocol](#uprotocol)
+- [Influxdb Connection](#influxdb-connection)
+- [TODOS](#todos)
+
+
+## Introduction
+
+This document aims to provide an insight into the installation and usage of various tools and technologies for creating a simulation environment for autonomous systems and IoT projects. It covers the setup and integration of tools like Windows Subsystem for Linux (WSL), Nvidia Docker, ROS, Kuksa, Autoware, and Ankaios, allowing users to:
+
+- Simulate and control autonomous vehicles using containerized environments.
+- Process and communicate vehicle signal data through standards like VSS with Kuksa.
+- Manage fleets using Ankaios and OCI-compatible tools.
+
+## Installing WSL
 In order to run a container based simulation environment there is a need to access to Nvidia GPU and setup Nvidia docker run time.
 It is easier to setup a WSL for Nvidia GPU configuration as it by default has direct access to sources of the host (compared to VM setup).
 
@@ -7,7 +34,7 @@ To install WSL the following tutorial can be followed:
 
 ## Sample ROS Autonomous Driving Project in Docker
 
-After setting up Nvidia Docker run-time, 
+After setting up Nvidia Docker run-time,
 
 A sample autonomous driving project can be initialized with:
 
@@ -37,7 +64,7 @@ ros2 run self_driving_car_pkg computer_vision_node # Self driving mode
 ```
 
 [![Watch the video](./AutonomousDriving.png)](./AutonomousDriving.mp4)
-## Kuksa 
+## Kuksa
 
 [Eclipse Kuksa Quick Start](https://eclipse-kuksa.github.io/kuksa-website/quickstart/)
 
@@ -50,7 +77,7 @@ ros2 run self_driving_car_pkg computer_vision_node # Self driving mode
 
 ```bash
 # To install Kuksa Python library:
-pip install kuksa_client 
+pip install kuksa_client
 ```
 
 ### A Sample Python Project Creating and Subscribing to a Kafka Topic
@@ -107,7 +134,7 @@ Kuksa supports VSS data type specification. For detailed documentation on VSS da
 
 - [Vehicle Signal Specification Data Types](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/)
 
-## Autoware 
+## Autoware
 
 [Autoware Documentation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/docker-installation/):
 
@@ -135,11 +162,11 @@ In case you get such error "NVIDIA-SMI has failed because it couldn't communicat
 
 > **Important Note:** Ankaios uses OCI image format. Hence it leverages Podman as container manager.
 
-### Install Podman: 
+### Install Podman:
 
 To install Podman on Ubunutu the following tutorial can be followed:
 - [Podman Installation](https://docs.vultr.com/how-to-install-podman-on-ubuntu-24-04)
-  
+
 ```bash
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key -O- | sudo apt-key add -
@@ -154,8 +181,8 @@ Following tutorial shows the steps on how to convert a Docker image format into 
 - [Docker2OCI](https://github.com/coolljt0725/docker2oci)
   -  Supports Docker2OCI conversion
   -  Supports validation of an Image based on OCI formatting
-    
-### A sample Ankaios Project 
+
+### A sample Ankaios Project
 
 ```yaml
 # state.yaml
@@ -202,4 +229,4 @@ ank -k get state # Get detailed state about all workload states
 [Kubernetes InfluxDB Setup](https://medium.com/starschema-blog/monitor-your-infrastructure-with-influxdb-and-grafana-on-kubernetes-a299a0afe3d2)
 
 ## TODOS
-- [ ] For IOT tracability demonstrate ROS/Autoware topic subscription and data visualization through Influxdb / Grafana 
+- [ ] For IOT tracability demonstrate ROS/Autoware topic subscription and data visualization through Influxdb / Grafana
